@@ -99,10 +99,27 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+            // select feed container
+            var feedContainer = document.getElementsByClassName('feed')[0];
+            var entryElement = document.getElementsByClassName('entry')[0];
+
+            beforeEach(function(done) {
+                loadFeed(0, function() {
+                    done();
+                })
+            })
          it('contains at least one .entry element within the .feed container after calling loadFeed', function() {
-            // beforeEach
-            // asyncrhonous done()
-            // test loadFeed function
+            // expect feed container classlist to contain at least one element with class='entry'
+            // expect length of childNodes array > 0
+            expect(feedContainer.childNodes.length).toBeGreaterThan(0);
+            // expect at least one of the childNodes to have class of .entry
+            for (var i = 0; i < feedContainer.childNodes.length; i++) {
+                // if the childNodes have children (these contain article.entry nodes)
+                if (feedContainer.childNodes[i].children) {
+                    // expect those children to have entry in the classList
+                    expect(feedContainer.childNodes[i].children[0].classList).toContain('entry');
+                }
+            }
          });
 
     });
