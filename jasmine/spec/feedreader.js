@@ -99,16 +99,18 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
-            // select feed container
-            var feedContainer = document.getElementsByClassName('feed')[0];
-            var entryElement = document.getElementsByClassName('entry')[0];
 
-            beforeEach(function(done) {
-                loadFeed(0, function() {
-                    done();
-                })
+        // select feed container
+        var feedContainer = document.getElementsByClassName('feed')[0];
+        var entryElement = document.getElementsByClassName('entry')[0];
+
+        // load the default feed, call done() when it's finished so jasmine will continue
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                done();
             })
-         it('contains at least one .entry element within the .feed container after calling loadFeed', function() {
+        })
+        it('contains at least one .entry element within the .feed container after calling loadFeed', function() {
             // expect feed container classlist to contain at least one element with class='entry'
             // expect length of childNodes array > 0
             expect(feedContainer.childNodes.length).toBeGreaterThan(0);
@@ -130,8 +132,58 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-         it('content changes when loading a new feed', function() {
+        var feedNumber = 0;
+        var oldHeaderTitle;
+        var newHeaderTitle;
+
+        // load one feed, save header title
+        beforeEach(function(done) {
+            oldHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
+            loadFeed(feedNumber, function() {
+                done()
+            })
+        });
+        // increase feed number and load a different feed
+        beforeEach(function(done) {
+            feedNumber += 1;
+            // load a new feed
+            loadFeed(feedNumber, function() {
+                done();
+            })
+        })
+        // set feed back to what it was initially
+        afterEach(function() {
+            feedNumber = 0;
+            loadFeed(feedNumber)
+        })
+
+        it('content changes when loading a new feed', function() {
             // call loadFeed again and test it
-         })
+
+            // save text in new header-title class
+            newHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
+            // expect new header to be different from old header
+            expect(oldHeaderTitle).not.toEqual(newHeaderTitle);
+        })
     });
 }());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
