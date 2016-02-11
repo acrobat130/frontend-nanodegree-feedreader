@@ -75,7 +75,17 @@ $(function() {
           */
           it('changes visibility when the menu icon is clicked', function() {
             // expect menu to display when clicked
+            // simulate click on element with class='menu-icon-link'
+            var menuButton = document.getElementsByClassName('menu-icon-link')[0];
+            menuButton.click();
+            // expect body classList to not contain menu-hidden
+            expect(document.body.classList).not.toContain('menu-hidden');
+
             // expect menu to hide when clicked again
+            // simulate click on element with class='menu-icon-link'
+            menuButton.click();
+            // expect body classList to contain menu-hidden
+            expect(document.body.classList).toContain('menu-hidden');
           })
 
     });
