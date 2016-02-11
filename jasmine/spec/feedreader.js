@@ -64,6 +64,8 @@ $(function() {
          // menu hidden by giving body tag: class='menu-hidden'
          it('has the menu element hidden by default', function() {
            // expect 'menu-hidden' class to be on body tag
+           // expect body classlist to contain menu-hidden
+           expect(document.body).classList.toContain('menu-hidden');
          })
 
          /* TODO: Write a test that ensures the menu changes
