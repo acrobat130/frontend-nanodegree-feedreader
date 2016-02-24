@@ -86,7 +86,6 @@ $(function() {
 
         // select feed container
         var feedContainer = document.getElementsByClassName('feed')[0];
-        var entryElement = document.getElementsByClassName('entry')[0];
 
         // load the default feed, call done() when it's finished so jasmine will continue
         beforeEach(function(done) {
