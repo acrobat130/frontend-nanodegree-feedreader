@@ -1,5 +1,7 @@
 # Feed Reader Testing Suite
 
+This repository contains a feed reader application with a testing suite written using Jasmine.
+
 ## How to run this application
 
 1. Fork and clone this repository.
