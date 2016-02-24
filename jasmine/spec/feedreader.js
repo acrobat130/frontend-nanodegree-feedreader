@@ -37,7 +37,7 @@ $(function() {
                 expect(allFeeds[i].url).toBeDefined();
                 expect(allFeeds[i].url.length).not.toBe(0);
             }
-         })
+         });
 
 
         /* TODO: Write a test that loops through each feed
@@ -49,7 +49,7 @@ $(function() {
                 expect(allFeeds[i].name).toBeDefined();
                 expect(allFeeds[i].name.length).not.toBe(0);
             }
-         })
+         });
     });
 
 
@@ -66,7 +66,7 @@ $(function() {
            // expect 'menu-hidden' class to be on body tag
            // expect body classlist to contain menu-hidden
            expect(document.body.classList).toContain('menu-hidden');
-         })
+         });
 
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
@@ -86,7 +86,7 @@ $(function() {
             menuButton.click();
             // expect body classList to contain menu-hidden
             expect(document.body.classList).toContain('menu-hidden');
-          })
+          });
 
     });
 
@@ -108,8 +108,8 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, function() {
                 done();
-            })
-        })
+            });
+        });
         it('contains at least one .entry element within the .feed container after calling loadFeed', function() {
             // expect feed container classlist to contain at least one element with class='entry'
             // expect length of childNodes array > 0
@@ -140,8 +140,8 @@ $(function() {
         beforeEach(function(done) {
             oldHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
             loadFeed(feedNumber, function() {
-                done()
-            })
+                done();
+            });
         });
         // increase feed number and load a different feed
         beforeEach(function(done) {
@@ -149,13 +149,13 @@ $(function() {
             // load a new feed
             loadFeed(feedNumber, function() {
                 done();
-            })
-        })
+            });
+        });
         // set feed back to what it was initially
         afterEach(function() {
             feedNumber = 0;
-            loadFeed(feedNumber)
-        })
+            loadFeed(feedNumber);
+        });
 
         it('content changes when loading a new feed', function() {
             // call loadFeed again and test it
@@ -164,7 +164,7 @@ $(function() {
             newHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
             // expect new header to be different from old header
             expect(oldHeaderTitle).not.toEqual(newHeaderTitle);
-        })
+        });
     });
 }());
 
