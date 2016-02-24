@@ -132,7 +132,7 @@ $(function() {
             });
         });
         // set feed back to what it was initially
-        afterEach(function() {
+        afterAll(function() {
             feedNumber = 0;
             loadFeed(feedNumber);
         });
