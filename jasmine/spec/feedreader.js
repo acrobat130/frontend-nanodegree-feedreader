@@ -89,9 +89,7 @@ $(function() {
 
         // load the default feed, call done() when it's finished so jasmine will continue
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         it('contains at least one .entry element within the .feed container after calling loadFeed', function() {
