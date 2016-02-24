@@ -3,7 +3,8 @@
 ## How to run this application
 
 1. Fork and clone this repository.
-2. View this application in the browswer via localhost. One option is to run `python -m SimpleHTTPServer` from the root directory of this repository on your local machine. To view the Feed Reader, navigate to localhost:8000 in your browser.
+2. Option 1 - View this application in the browswer via localhost. One option is to run `python -m SimpleHTTPServer` from the root directory of this repository on your local machine. To view the Feed Reader, navigate to localhost:8000 in your browser.
+3. Option 2 - View this application locally by opening index.html in the browser.
 
 ## How to add future tests to this application
 
