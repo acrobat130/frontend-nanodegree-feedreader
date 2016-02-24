@@ -84,8 +84,9 @@ $(function() {
         // this test ensures when the loadFeed function is called and completes its work, there is at least a single .entry element within the .feed container.
         // loadFeed() is asynchronous so we need to use beforeEach and done()
 
-        // select feed container
         var feedContainer = document.getElementsByClassName('feed')[0];
+        // declare variable to hold .entry elements
+        var entryElementsInFeedContainer = document.querySelectorAll('.feed .entry');
 
         // load the default feed, call done() when it's finished so jasmine will continue
         beforeEach(function(done) {
@@ -94,8 +95,9 @@ $(function() {
 
         it('contains at least one .entry element within the .feed container after calling loadFeed', function() {
             // expect feed container classlist to contain at least one element with class='entry'
+
             // expect length of childNodes array > 0
-            expect(feedContainer.childNodes.length).toBeGreaterThan(0);
+            expect(entryElementsInFeedContainer.length).toBeGreaterThan(0);
             // expect at least one of the childNodes to have class of .entry
             for (var i = 0; i < feedContainer.childNodes.length; i++) {
                 // if the childNodes have children (these contain article.entry nodes)
