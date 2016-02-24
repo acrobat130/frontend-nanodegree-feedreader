@@ -108,7 +108,7 @@ $(function() {
         var oldHeaderTitle;
         var newHeaderTitle;
 
-        // load one feed, save header title
+        // load one feed
         beforeEach(function(done) {
             oldHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
             loadFeed(feedNumber, function() {
@@ -129,11 +129,24 @@ $(function() {
             loadFeed(feedNumber);
         });
 
-        it('content changes when loading a new feed', function() {
+        it('content changes when loading a new feed', function(done) {
             // call loadFeed again and test it
 
-            // save text in new header-title class
-            newHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
+            // load one feed and save header title
+            loadFeed(feedNumber, function() {
+                oldHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
+                // increase feed number before loading feed again
+                feedNumber += 1;
+                // load a different feed
+                loadFeed(feedNumber, function() {
+                    // save text in new header-title class
+                    newHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
+                    done();
+                });
+                done();
+            });
+
+
             // expect new header to be different from old header
             expect(oldHeaderTitle).not.toEqual(newHeaderTitle);
         });
