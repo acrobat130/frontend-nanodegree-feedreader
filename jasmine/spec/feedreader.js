@@ -108,21 +108,6 @@ $(function() {
             oldHeaderTitle,
             newHeaderTitle;
 
-        // load one feed
-        beforeEach(function(done) {
-            oldHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
-            loadFeed(feedNumber, function() {
-                done();
-            });
-        });
-        // increase feed number and load a different feed
-        beforeEach(function(done) {
-            feedNumber += 1;
-            // load a new feed
-            loadFeed(feedNumber, function() {
-                done();
-            });
-        });
         // set feed back to what it was initially
         afterAll(function() {
             feedNumber = 0;
