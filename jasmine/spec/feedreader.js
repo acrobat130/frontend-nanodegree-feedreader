@@ -104,9 +104,9 @@ $(function() {
         // this test ensures that when a new feed is loaded by the loadFeed function, the content actually changes.
         // loadFeed() is asynchronous so we need to use beforeEach and done()
 
-        var feedNumber = 0;
-        var oldHeaderTitle;
-        var newHeaderTitle;
+        var feedNumber = 0,
+            oldHeaderTitle,
+            newHeaderTitle;
 
         // load one feed
         beforeEach(function(done) {
