@@ -128,7 +128,6 @@ $(function() {
                     newHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
                     done();
                 });
-                done();
             });
 
 
