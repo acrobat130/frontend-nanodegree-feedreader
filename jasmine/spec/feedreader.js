@@ -119,20 +119,22 @@ $(function() {
 
             // load one feed and save header title
             loadFeed(feedNumber, function() {
-                oldHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
+                oldHeaderTitle = document.querySelectorAll('.feed .entry')[0].textContent;
+                console.log("oldHeaderTitle",oldHeaderTitle)
                 // increase feed number before loading feed again
                 feedNumber += 1;
                 // load a different feed
                 loadFeed(feedNumber, function() {
                     // save text in new header-title class
-                    newHeaderTitle = document.getElementsByClassName('header-title')[0].textContent;
+                    newHeaderTitle = document.querySelectorAll('.feed .entry')[0].textContent;
+                    console.log("newHeaderTitle", newHeaderTitle)
+                    // expect new header to be different from old header
+                    expect(oldHeaderTitle).not.toEqual(newHeaderTitle);
                     done();
                 });
             });
 
 
-            // expect new header to be different from old header
-            expect(oldHeaderTitle).not.toEqual(newHeaderTitle);
         });
     });
 }());
