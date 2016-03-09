@@ -5,8 +5,9 @@ This repository contains a feed reader application with a testing suite written 
 ## How to run this application
 
 1. Fork and clone this repository.
-2. Option 1 - View this application in the browswer via localhost. One option is to run `python -m SimpleHTTPServer` from the root directory of this repository on your local machine. To view the Feed Reader, navigate to localhost:8000 in your browser.
-3. Option 2 - View this application locally by opening index.html in the browser.
+2. View this application by doing one of the following:
+  * View in the browswer via localhost by typing `python -m SimpleHTTPServer` in the terminal from the root directory of this repository on your local machine. To view the Feed Reader, navigate to localhost:8000 in your browser.
+  * View locally by opening `index.html` in the browser.
 
 ## How to add future tests to this application
 
